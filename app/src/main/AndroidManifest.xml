@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.juego">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_icono_juego"
+        android:label="Monsterapp"
+        android:roundIcon="@mipmap/ic_launcher_icono_juego"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".tutorial"></activity>
+        <activity android:name=".SelectorMundos" />
+        <activity android:name=".Configuracion" />
+        <activity
+            android:name=".Ganador"
+            android:theme="@style/AppTheme.NoTitleDialog" />
+
+        <service
+            android:name=".AudioService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Mundo1Niveles"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Mundo1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PantallaMenuDos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MULTIJUGADOR"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>
