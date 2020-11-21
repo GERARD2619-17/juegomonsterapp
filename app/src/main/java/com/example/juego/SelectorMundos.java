@@ -59,7 +59,8 @@ public class SelectorMundos extends AppCompatActivity {
     }
     public void Centro_onClick(View v){
         if(selector==0){
-            Toast.makeText(this, "El tutorial aun no está listo", Toast.LENGTH_SHORT).show();
+            Intent tutorial = new Intent(this, tutorial.class);
+            startActivity(tutorial);
         }else if(selector==1){
             Intent aventura = new Intent(this, Mundo1.class);
             startActivity(aventura);

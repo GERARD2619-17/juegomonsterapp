@@ -9,6 +9,7 @@
     <string name="btnAtras1">Atras</string>
     <string name="Configuracion">Configuracion</string>
     <string name="txtselector">Mundos</string>
+    <string name="txtTuto">Tutorial</string>
     //configuracion
     <string name="txtconfiguracion">Configuración</string>
     <string name="txtmusica">Música</string>
