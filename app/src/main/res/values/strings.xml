@@ -10,6 +10,7 @@
     <string name="Configuracion">Configuracion</string>
     <string name="txtselector">Mundos</string>
     <string name="txtTuto">Tutorial</string>
+    <string name="btnVS">VS</string>
     //configuracion
     <string name="txtconfiguracion">Configuración</string>
     <string name="txtmusica">Música</string>
@@ -18,7 +19,8 @@
     //pantalla 2
     <string name="txtMenuseleccion">Menu principal</string>
     <string name="btnonline">ORDENADOR</string>
-    <string name="btnvspersonas">P VS P</string>
+    <string name="btnLocal">Local</string>
+    <string name="btnOnline">En linea</string>
     <string name="btnAtras">ATRAS</string>
     //mundo 1
     <string name="txtTituloEgipto">Antiguo Egipto</string>

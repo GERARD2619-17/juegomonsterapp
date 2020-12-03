@@ -68,4 +68,7 @@ public class SelectorMundos extends AppCompatActivity {
             Toast.makeText(this, "El mundo 2 aun no está listo", Toast.LENGTH_SHORT).show();
         }
     }
+    public void finish(View v){
+        finish();
+    }
 }

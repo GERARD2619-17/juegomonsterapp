@@ -78,6 +78,7 @@
             android:layout_height="50dp"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
+            android:onClick="finish"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/ic_menu_revert" />

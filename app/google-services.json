@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "596528065707",
+    "firebase_url": "https://monstruos-10f57.firebaseio.com",
+    "project_id": "monstruos-10f57",
+    "storage_bucket": "monstruos-10f57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596528065707:android:607c1df41e4a10e8c0dbee",
+        "android_client_info": {
+          "package_name": "com.example.juego"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596528065707-fgu3g71dfgoemrehc4racm9lgsn73kl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyCq8wEp22NlkMGEptw-Fo9iMF3DO2ao0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596528065707-fgu3g71dfgoemrehc4racm9lgsn73kl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

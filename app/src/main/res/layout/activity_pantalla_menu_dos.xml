@@ -9,61 +9,88 @@
     tools:context=".PantallaMenuDos"
     >
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
         android:gravity="center"
-        android:textSize="24dp"
-        android:textColor="#FFFFFF"
+        android:orientation="vertical">
 
-        android:layout_marginTop="95dp"
-        android:text="@string/txtMenuseleccion" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center|center_vertical"
+            android:text="@string/btnVS"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnonline"
-        android:layout_width="240dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/custom_button"
-        android:alpha="0.80"
-        android:text="@string/btnonline"
-        android:textColor="#FDFFFF" />
-
-    <Button
-        android:id="@+id/btnvspersonas"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:alpha="0.80"
-        android:textColor="#FFFFFF"
-        android:onClick="VSPersonas_onClick"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/custom_button"
         android:gravity="center"
-        android:text="@string/btnvspersonas"
-        tools:ignore="OnClick" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnAtras"
-        android:layout_width="240dp"
+        <Button
+            android:id="@+id/btnOrdenador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="64dp"
+            android:alpha="0.80"
+            android:background="@drawable/custom_button"
+            android:onClick="ordenador_onClick"
+            android:text="@string/btnonline"
+            android:textColor="#FDFFFF" />
+
+        <Button
+            android:id="@+id/btnLocal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="64dp"
+            android:alpha="0.80"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:onClick="local_onClick"
+            android:text="@string/btnLocal"
+            android:textColor="#FFFFFF"
+            tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="64dp"
+            android:alpha="0.80"
+            android:background="@drawable/custom_button"
+            android:onClick="online_onClick"
+            android:text="@string/btnOnline"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="Retroceder_onClick"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:alpha="0.80"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/custom_button"
-        android:text="@string/btnAtras" />
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/imageButton11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:onClick="Retroceder_onClick"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+    </LinearLayout>
 
 </LinearLayout>

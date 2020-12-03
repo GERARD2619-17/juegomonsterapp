@@ -969,19 +969,22 @@ public class Mundo1Niveles extends AppCompatActivity implements View.OnClickList
                 Correr.post(new Runnable() {
                     @Override
                     public void run() {
-                        if(jugando==false){
-                            seguir=false;
-                        }
-                        if(!Seleccionador()){
-                            seguir=false;
-                            j++;
-                            if(j==1){
-                                cargar();
-                                contador = 0;
-                                NumeroEnJuego = 0;
-                                terminar();
+                        if(seguir==true){
+                            if(jugando==false){
+                                seguir=false;
+                            }
+                            if(!Seleccionador()){
+                                seguir=false;
+                                j++;
+                                if(j==1){
+                                    cargar();
+                                    contador = 0;
+                                    NumeroEnJuego = 0;
+                                    terminar();
+                                }
                             }
                         }
+
                     }
                 });
 

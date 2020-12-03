@@ -89,7 +89,7 @@ public class Configuracion extends AppCompatActivity implements View.OnClickList
 
             case R.id.play_pause:{
                 Intent pantalla1 = new Intent(this, MainActivity.class);
-                Intent pantalla2 = new Intent(this, MULTIJUGADOR.class);
+                Intent pantalla2 = new Intent(this, online.class);
                 Intent pantalla3 = new Intent(this, Mundo1.class);
                 Intent pantalla4 = new Intent(this, Mundo1Niveles.class);
                 Intent pantalla5 = new Intent(this, PantallaMenuDos.class);

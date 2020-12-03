@@ -52,7 +52,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:scaleType="center"
+                android:scaleType="fitCenter"
                 app:srcCompat="@drawable/m1_btn1" />
 
             <ImageButton
@@ -62,7 +62,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:scaleType="center"
+                android:scaleType="fitCenter"
                 app:srcCompat="@drawable/null_m1_btn2" />
 
             <ImageButton
@@ -72,7 +72,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:scaleType="center"
+                android:scaleType="fitCenter"
                 app:srcCompat="@drawable/null_m1_btn3" />
 
             <ImageButton
@@ -82,7 +82,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:scaleType="center"
+                android:scaleType="fitCenter"
                 app:srcCompat="@drawable/null_m1_btn4" />
         </LinearLayout>
 
