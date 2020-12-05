@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -33,14 +34,15 @@ public class online extends AppCompatActivity {
     private EditText texto;
     private Typeface Letra;
     private Typeface Letra2;
-    private List<Jugador> jugador = new ArrayList<>();
+    private List<Jugador> jugador;
     private int pos=0;
     private Button txtIdNick;
     private TextView txtBuscando;
-    private String llave="";
+    private String llave;
+    private String llavetemporal;
 
     private Handler Correr;
-    public boolean continuar=false;
+    public boolean continuar;
 
     private FirebaseDatabase database;
     private DatabaseReference databaseJugador;
@@ -61,8 +63,12 @@ public class online extends AppCompatActivity {
         txtBuscando.setTypeface(Letra);
         texto.setTypeface(Letra);
         txtIdNick.setTypeface(Letra2);
+        llavetemporal = "";
+        llave="";
 
         this.Correr = new Handler();
+        jugador = new ArrayList<>();
+        continuar=false;
 
         this.database = FirebaseDatabase.getInstance();
         this.databaseJugador = database.getReference("jugador");
@@ -77,8 +83,15 @@ public class online extends AppCompatActivity {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                jugador.get(pos).setEstado("jugando");
-                pos = 0;
+                if(verificar()){
+                    jugador.get(pos).setEstado("jugando");
+                    //Habre el juego con la key de los dos jugadores
+                    abrir(jugador.get(pos));
+                    pos = 0;
+                    databaseJugador.child(jugador.get(pos).getId()).removeValue();
+                    databaseJugador.child(jugador.get(jugador.size()-1).getId()).removeValue();
+
+                }
             }
 
             @Override
@@ -98,19 +111,29 @@ public class online extends AppCompatActivity {
         });
     }
 
+    public void abrir(Jugador j){
+        Intent multijugador = new Intent(this, Multijugador.class);
+        multijugador.putExtra("key",j.getId()+jugador.get(jugador.size()-1).getId());
+        multijugador.putExtra("rival",jugador.get(jugador.size()-1).getNombre());
+        multijugador.putExtra("turno",j.getTurnoInicial());
+        startActivity(multijugador);
+        finish();
+    }
     public void Buscar_onClick(View v){
         if(continuar){
             continuar=false;
             txtIdNick.setText("Buscar");
             txtIdNick.setBackgroundDrawable(getResources().getDrawable(R.drawable.custom_button4));
             databaseJugador.child(llave).removeValue();
+            jugador.remove(jugador.size()-1);
+            llave="";
         }else {
             int contador=0;
             boolean seguir = true;
             do{
                 if(contador >= jugador.size()){
                     String key = databaseJugador.push().getKey();
-                    Jugador j = new Jugador(key,texto.getText().toString(),"buscando","1");
+                    Jugador j = new Jugador(key,texto.getText().toString(),"buscando","1");//1 - inserte player1
                     databaseJugador.child(key).setValue(j);
                     continuar=true;
                     llave = key;
@@ -120,22 +143,34 @@ public class online extends AppCompatActivity {
                     seguir = false;
                 }else {
                     if(jugador.get(contador).getEstado().equals("buscando")){
-                        //Actualizo el jugador de estado "buscando" a "jugando"
-                        Jugador j1 = jugador.get(contador);
-                        Jugador j2 = new Jugador(j1.getId(),j1.getNombre(),"jugando",j1.getTurnoInicial());
-                        databaseJugador.child(j1.getId()).setValue(j2);
-                        pos = contador;
                         //Emparejo con el jugador que busca partida
                         String key = databaseJugador.push().getKey();
-                        Jugador j = new Jugador(key,texto.getText().toString(),"jugando","2");
+                        Jugador j = new Jugador(key,texto.getText().toString(),"jugando","2");//yo
                         databaseJugador.child(key).setValue(j);
+                        llave=key;
+                        //Actualizo el jugador de estado "buscando" a "jugando"
+                        Jugador j1 = jugador.get(contador);
+                        Jugador j2 = new Jugador(j1.getId(),j1.getNombre(),"jugando",j1.getTurnoInicial());//rival
+                        databaseJugador.child(j1.getId()).setValue(j2);
+                        pos = contador;
                         seguir = false;
+
+                        //Habre el juego con la key de los dos jugadores
+                        Intent multijugador = new Intent(this, Multijugador.class);
+                        multijugador.putExtra("key",j2.getId()+key);
+                        multijugador.putExtra("rival",j2.getNombre());
+                        multijugador.putExtra("turno",j.getTurnoInicial());
+                        startActivity(multijugador);
+                        for(int i=0;i<=jugador.size();i++){
+                            jugador.remove(i);
+                        }
+                        finish();
+
                     }
                     contador++;
                 }
             }while (seguir);
         }
-
     }
 
     private void BorrarBase(){
