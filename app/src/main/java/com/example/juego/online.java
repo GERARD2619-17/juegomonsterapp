@@ -129,38 +129,41 @@ public class online extends AppCompatActivity {
             jugador.remove(jugador.size()-1);
             llave="";
         }else {
-            int contador=0;
+            if (texto.getText().toString().length() == 0) {
+                Toast.makeText(this, "Ingrese su Nombre", Toast.LENGTH_SHORT).show();
+            }else{
+            int contador = 0;
             boolean seguir = true;
-            do{
-                if(contador >= jugador.size()){
-                    continuar=true;
+            do {
+                if (contador >= jugador.size()) {
+                    continuar = true;
                     String key = databaseJugador.push().getKey();
-                    Jugador j = new Jugador(key,texto.getText().toString(),"buscando","1");//1 - inserte player1
+                    Jugador j = new Jugador(key, texto.getText().toString(), "buscando", "1");//1 - inserte player1
                     databaseJugador.child(key).setValue(j);
                     llave = key;
                     txtIdNick.setText("Cancelar");
                     txtIdNick.setBackgroundDrawable(getResources().getDrawable(R.drawable.custom_button5));
                     new Thread(new cargar()).start();
                     seguir = false;
-                }else {
-                    if(jugador.get(contador).getEstado().equals("buscando")){
+                } else {
+                    if (jugador.get(contador).getEstado().equals("buscando")) {
                         //Emparejo con el jugador que busca partida
                         String key = databaseJugador.push().getKey();
-                        Jugador j = new Jugador(key,texto.getText().toString(),"jugando","2");//yo
+                        Jugador j = new Jugador(key, texto.getText().toString(), "jugando", "2");//yo
                         databaseJugador.child(key).setValue(j);
-                        llave=key;
+                        llave = key;
                         //Actualizo el jugador de estado "buscando" a "jugando"
                         pos = contador;
                         seguir = false;
 
                         //Habre el juego con la key de los dos jugadores
                         Intent multijugador = new Intent(this, Multijugador.class);
-                        multijugador.putExtra("key",jugador.get(contador).getId()+key);
-                        multijugador.putExtra("rival",jugador.get(contador).getNombre());
-                        multijugador.putExtra("turno",j.getTurnoInicial());
-                        multijugador.putExtra("yo",texto.getText().toString());
+                        multijugador.putExtra("key", jugador.get(contador).getId() + key);
+                        multijugador.putExtra("rival", jugador.get(contador).getNombre());
+                        multijugador.putExtra("turno", j.getTurnoInicial());
+                        multijugador.putExtra("yo", texto.getText().toString());
                         startActivity(multijugador);
-                        for(int i=0;i<=jugador.size();i++){
+                        for (int i = 0; i <= jugador.size(); i++) {
                             jugador.remove(i);
                         }
                         finish();
@@ -168,7 +171,8 @@ public class online extends AppCompatActivity {
                     }
                     contador++;
                 }
-            }while (seguir);
+            } while (seguir);
+        }
         }
     }
 
@@ -217,6 +221,14 @@ public class online extends AppCompatActivity {
     }
 
     public void fin(View v){
+        try {
+            databaseJugador.child(llave).removeValue();
+            jugador.remove(jugador.size()-1);
+            llave="";
+        }
+        catch (Exception e){
+
+        }
         finish();
     }
 }

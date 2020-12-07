@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
 //menu2
 public class PantallaMenuDos extends AppCompatActivity {
 
@@ -20,8 +22,7 @@ public class PantallaMenuDos extends AppCompatActivity {
         startActivity(mundo1);
     }
     public void local_onClick(View v){
-        //Intent local = new Intent(this, MULTIJUGADOR.class);
-        //startActivity(local);
+        Toast.makeText(this, "Esta opcion aun no esta programada, prueba el juego en linea", Toast.LENGTH_SHORT).show();
     }
     public void online_onClick(View v){
         Intent o = new Intent(this,online.class);
