@@ -22,7 +22,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center|center_vertical"
             android:text="@string/btnVS"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/Marron"
             android:textSize="24dp" />
     </LinearLayout>
 

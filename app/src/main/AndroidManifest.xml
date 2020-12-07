@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_icono_juego"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Multijugador"></activity>
+        <activity android:name=".Resultado"></activity>
+        <activity android:name=".Multijugador" />
         <activity android:name=".online" />
         <activity android:name=".tutorial" />
         <activity android:name=".SelectorMundos" />

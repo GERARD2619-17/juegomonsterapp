@@ -165,7 +165,7 @@ public class Mundo1Niveles extends AppCompatActivity implements View.OnClickList
         btn34.setOnClickListener(this);
         btn35.setOnClickListener(this);
     }
-    //Genera los valores aleatorios de nuestras piezas en el tablero y los agrega en la lista "grupos" para acceder a ellos cuando querramos
+    //Genera las piezas en el tablero y los agrega en la lista "grupos" para acceder a ellos cuando querramos
     private void cargarGrupos(){
         NivelesMundo1 nivel = new NivelesMundo1(Nivel);
         grupos = nivel.getNivelesMundo1();
